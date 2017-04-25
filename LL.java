@@ -58,8 +58,39 @@ public void print()
 		start=start.link;
 	}
 }
+
+
+public void deleteAtRandom(int index)
+{
+	Node start=head;
+	for(int i=0;i<index-1;i++)
+	{
+	start=start.link;
+	}	
+	Node Temp=start.link;
+	start.link=Temp.link;
+}	
+
+public void deleteAtFront()
+{
+	Node start=head;
+	head=start.link;
 }
 
+public void deleteAtEnd()
+{
+	Node start=head;
+	while(true)
+	{
+		start=start.link;
+		if(start.link.link==null)
+			break;
+	}
+	start.link=null;
+	
+}
+	
+}
 class LL{
 	public static void main(String args[])
 	{
@@ -69,6 +100,13 @@ class LL{
 	l.pushAtFront(7);
 	l.pushAtRandom(2,8);
 	l.pushAtEnd(9);
+	l.print();
+	l.deleteAtRandom(2);
+	System.out.println("After Deletion ");
+	l.print();
+	l.deleteAtFront();
+	l.print();
+	l.deleteAtEnd();
 	l.print();
 	
 	}
